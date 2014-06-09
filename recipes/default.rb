@@ -8,8 +8,11 @@
 #
 
 include_recipe 'sensu_spec::base'
+include_recipe 'sensu_spec::definitions'
 include_recipe 'harden::definitions'
 
-include_recipe 'harden::security_updates'
+node.harden.recipes.keys.each do |r|
+  include_recipe "harden::#{r}" if node.harden.recipes[r]
+end
 
 include_recipe 'sensu_spec::client'

@@ -13,6 +13,14 @@ end
 
 describe 'harden' do
   describe 'security updates' do
-    it 'must have no security updates pending'
+
+    describe 'command' do
+      it 'must have command list-security-updates'
+    end
+
+    describe 'count' do
+      it 'must have no security updates pending'
+    end
+
   end
 end
