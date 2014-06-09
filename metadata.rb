@@ -1,0 +1,10 @@
+name             'harden'
+maintainer       ''
+maintainer_email ''
+license          ''
+description      'Installs/Configures harden'
+long_description 'Installs/Configures harden'
+version          '0.1.0'
+
+depends 'apt'
+depends 'sensu_spec', '~> 0.5'
