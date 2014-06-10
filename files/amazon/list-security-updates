@@ -1,7 +1,8 @@
 #!/bin/bash
+# amazon version
 
 if [[ "$UID" != "0" ]]; then
   echo "Must be root to run this"; exit 1
 fi
 
-yum -d 0 list-security | awk '{ print $NF }'
+yum -d 0 --security list updates | awk '{ print $NF }'
