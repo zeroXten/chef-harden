@@ -6,8 +6,6 @@
 #
 # 
 #
-
-include_recipe 'sensu_spec::base'
 include_recipe 'sensu_spec::definitions'
 include_recipe 'harden::definitions'
 

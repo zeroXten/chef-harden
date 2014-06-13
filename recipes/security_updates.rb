@@ -12,13 +12,13 @@ cookbook_file '/usr/bin/list-security-updates' do
 end
 
 bash 'first-list-security-updates' do
-  command '/usr/bin/list-security-updates | wc -l > /var/tmp/security-updates-count'
+  command 'updates=$(/usr/bin/list-security-updates | wc -l); echo $updates > /var/tmp/security-updates-count'
   not_if 'test -r /var/tmp/security-updates-count'
 end
 
 cron 'list-security-updates' do
   user 'root'
-  command '/usr/bin/list-security-updates | wc -l > /var/tmp/security-updates-count'
+  command 'updates=$(/usr/bin/list-security-updates | wc -l); echo $updates > /var/tmp/security-updates-count'
 end
 
 # security updates
