@@ -6,11 +6,8 @@
 #
 # 
 #
-include_recipe 'sensu_spec::definitions'
-include_recipe 'harden::definitions'
+include_recipe 'sensu_spec::client'
 
 node.harden.recipes.keys.each do |r|
   include_recipe "harden::#{r}" if node.harden.recipes[r]
 end
-
-include_recipe 'sensu_spec::client'
