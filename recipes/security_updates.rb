@@ -17,6 +17,7 @@ bash 'first-list-security-updates' do
 end
 
 cron 'list-security-updates' do
+  minute '0'
   user 'root'
   command 'updates=$(/usr/bin/list-security-updates | wc -l); echo $updates > /var/tmp/security-updates-count'
 end
