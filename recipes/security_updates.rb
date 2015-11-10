@@ -47,8 +47,10 @@ describe 'harden' do
       it 'must have command list-security-updates'
     end
 
-    describe 'count' do
-      it 'must have no security updates pending'
+    if node.chef_environment.downcase == "production"
+      describe 'count' do
+        it 'must have no security updates pending'
+      end
     end
 
   end
