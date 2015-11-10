@@ -47,7 +47,7 @@ describe 'harden' do
       it 'must have command list-security-updates'
     end
 
-    if node.chef_environment.downcase == "production"
+    unless Chef::Config[:solo]
       describe 'count' do
         it 'must have no security updates pending'
       end
