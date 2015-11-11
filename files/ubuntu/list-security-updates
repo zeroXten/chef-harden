@@ -10,3 +10,5 @@ grep -v '^#' /etc/apt/sources.list | grep 'deb ' | grep security > /etc/apt/hard
 apt-get -o Dir::Etc::sourcelist="harden_security.list" -o Dir::Etc::sourceparts="-" update >/dev/null 2>&1
 
 apt-get -o Dir::Etc::sourcelist="harden_security.list" -o Dir::Etc::sourceparts="-" update >/dev/null && apt-get --assume-no upgrade 2>/dev/null| grep '^  ' | sed 's/^ *//' | tr " " "\n"
+
+apt-get update
